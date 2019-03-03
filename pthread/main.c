@@ -31,8 +31,8 @@ void* run_task(void* args){
 			g_iFlag = FALSE;
 			break;
 		}
-		usleep(1000*1000);
 		printf("task run at %dth cycle\n", jx);
+		usleep(3000*1000);
 	}
 	
 	printf("%s end.\n", __FUNCTION__);
@@ -72,10 +72,10 @@ int main()
 	}*/
 
 	printf("start to pthread_join()\n");
-	pthread_join(tid, NULL);
+	pthread_join(tid, NULL);//if no it, run_task() has no time to excute
 	printf("end to pthread_join()\n");
 
-free(pstLi);
-pstLi = NULL;
+    free(pstLi);
+    pstLi = NULL;
 	return 0;
 }

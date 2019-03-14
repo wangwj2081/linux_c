@@ -1,17 +1,9 @@
-#CC = aarch64-oe-linux-gcc
 CC = gcc
-#CPP = g++
-#AR = ar rc
 
 #INC =  -I./include/
-#INC ?= --sysroot=/usr/local/oecore-x86_64/sysroots/aarch64-oe-linux
-
-LIBVAR = -lpthread
+#LIBVAR = -lpthread
 #LIBPATH = -L./lib
-LIBPATH =
-
-#CFLAGS ?= -O2 -fexpensive-optimizations -frename-registers -fomit-frame-pointer 
-#CFLAGS += -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed
+#CFLAGS ?= -O2 -g 
 
 OBJS := main.o
 OBJS += add.o
@@ -20,8 +12,8 @@ OBJS += sub.o
 SRCS := main.c
 SRCS += add.c
 SRCS += sub.c
-TARGET = test
 
+TARGET = test
 
 $(TARGET):$(OBJS)
 	$(CC) $(INC) $(CFLAG) -o $@ $^ $(LIBVAR) $(LIBPATH) 
@@ -34,4 +26,4 @@ clean:
 	rm -rf $(OBJS) $(TARGET) 
 
 install:
-	@echo "rtmp do nothing"
+	@echo "do nothing"
